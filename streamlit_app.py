@@ -20,7 +20,7 @@ pd_df=my_fruitlistframe.to_pandas()
 #st.dataframe(pd_df)
 #st.stop()                                                                 
 
-ingredients_list = st.multiselect('Choose upto 5',my_fruitlist,max_selections=5)
+ingredients_list = st.multiselect('Choose upto 5',my_fruitlistframe,max_selections=5)
 
 if ingredients_list:
     #st.write(ingredients_list)
