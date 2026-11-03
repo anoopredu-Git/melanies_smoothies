@@ -7,8 +7,7 @@ cnx = st.connection("snowflake")
 
 # Write directly to the app
 st.title(":cup_with_straw: Customize Your Smoothie :cup_with_straw:")
-st.write(
-  """Choose the fruits you want in custom Smoothie!"""
+st.write("""Choose the fruits you want in custom Smoothie!""")
 )
 
 name_on_order = st.text_input('Name on Smoothie:')
@@ -16,8 +15,10 @@ st.write('The name on Smoothie is: ',name_on_order)
 
 #session = get_active_session()
 session = cnx.session()
-my_fruitlist = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'),col('SEARCH_ON'))
-st.dataframe(data=my_fruitlist, use_container_width=False)
+my_fruitlistframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'),col('SEARCH_ON'))
+#st.dataframe(data=my_fruitlistframe, use_container_width=False)
+pd_pf=my_fruitlistframe.to_pandas()
+st.dataframe(pd_df)
 st.stop()                                                                      
 
 ingredients_list = st.multiselect('Choose upto 5',my_fruitlist,max_selections=5)
