@@ -16,7 +16,7 @@ st.write('The name on Smoothie is: ',name_on_order)
 session = cnx.session()
 my_fruitlistframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'),col('SEARCH_ON'))
 #st.dataframe(data=my_fruitlistframe, use_container_width=False)
-pd_pf=my_fruitlistframe.to_pandas()
+pd_df=my_fruitlistframe.to_pandas()
 st.dataframe(pd_df)
 st.stop()                                                                 
 
