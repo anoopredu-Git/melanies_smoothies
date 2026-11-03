@@ -17,8 +17,8 @@ st.write('The name on Smoothie is: ',name_on_order)
 #session = get_active_session()
 session = cnx.session()
 my_fruitlist = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'),col('SEARCH_ON'))
+st.dataframe(data=my_fruitlist, use_container_width=False)
 st.stop()                                                                      
-#st.dataframe(data=my_dataframe, use_container_width=False)
 
 ingredients_list = st.multiselect('Choose upto 5',my_fruitlist,max_selections=5)
 
