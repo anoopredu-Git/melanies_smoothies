@@ -30,7 +30,7 @@ if ingredients_list:
         ingredients_string += fruit_chosen + ' '
         search_on=pd_df.loc[pd_df['FRUIT_NAME'] == fruit_chosen, 'SEARCH_ON'].iloc[0]
         if pd_df.isna(search_on) or search_on is None:
-            SEARCH_ON = fruit_chosen  # Your fallback value
+            search_on = fruit_chosen  # Your fallback value
         # else:
         #     my_variable = raw_value
         st.write('The search value for ', fruit_chosen,' is ', search_on, '.')  
